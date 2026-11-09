@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: teacher-emma
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: PALOMA_PASSWORD
+        sync: false
+      - key: VALEN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+# DATABASE_URL deve apontar para banco Postgres persistente.
